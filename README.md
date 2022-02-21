@@ -20,7 +20,7 @@ The user would like to.... :
 ## Installation / Setup instruction
 
 #### The application requires the following installations to operate 
-* python3.6
+* python3.6 (minimum version)
 * pyperclip
 * pip
 
@@ -37,10 +37,10 @@ The user would like to.... :
 ### Running the Application
 * To run the application, open the cloned file in terminal and run the following commands:
 
-        $ chmod +x interface.py
-        $ ./interface.py
+        $ chmod +x run.py
+        $ ./run.py
 * To run test for the application
-        $ python3 passlock_test.py
+        $ python3 passwordlock_test.py
 
 ## Behaviour Driven Development
 | Behaviour | Input | Output |
