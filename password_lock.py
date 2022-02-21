@@ -101,6 +101,13 @@ class Credentials():
     def display_credentials(cls):
         """
 
-        Method returning all the itemsin credential list
+        Method returning all the items in credential list
         """
-        
+        return cls.credentials_list
+    
+    def generatepassword(stringLength=7):
+        """
+        Generate random password string of letters and integers and special characters
+        """
+        password = string.ascii_lowercase +string.ascii_uppercase + string.digits + "~!@#$%^&*"
+        return ''.join(random.choice(password) for i in range(stringLength))
