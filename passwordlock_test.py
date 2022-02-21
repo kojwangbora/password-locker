@@ -25,7 +25,7 @@ class TestClass(unittest.TestCase):
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
 
-class TestCredentials(unittest, unittest.TestCase):
+class TestCredentials(unittest.TestCase):
     """method runs before individual credential tests runs"""
 
     def setUp(self):
@@ -48,8 +48,16 @@ class TestCredentials(unittest, unittest.TestCase):
     
     def tearDown(self):
         '''A method that cleans up after the test case have run'''
-         
+
+        Credentials.credentials_list =[]
     
-    
-         
-    
+    def test_save_many_accounts(self):
+        '''Tests to check if  it can save multiple credentials in our credential list'''
+
+        self.new_credential.save_details()
+        test_credential= Credentials("Instagram", "ochiengbora", "TiktakT5u")
+        test_credential.save_details()
+        self.assertEqual(len(Credentials.credentials_list),2)
+
+    def test_delete_credential(self):
+        
