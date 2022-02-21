@@ -1,5 +1,6 @@
 #import relevant modules
 
+from cgi import test
 from password_lock import User
 from password_lock import Credentials
 import unittest
@@ -60,4 +61,30 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(len(Credentials.credentials_list),2)
 
     def test_delete_credential(self):
-        
+        """Test method for removing an account's credentials from the credential_list"""
+        self.new_credential.save_details()
+        test_credential = Credentials("Instagram", "ochiengbora", "TiktakT5u")
+        test_credential.save_details()
+
+        self.new_credential.delete_credentials()
+        self.assertEqual(len(Credentials.credentials_list),1)
+    
+    def test_find_credentials(self):
+        """Test  to find a credential entry by account name and displays details of the credentials"""
+
+        self.new_credential.save_details()
+        test_credential = Credentials("Instagram", "ochiengbora", "TiktakT5u")
+        test_credential.save_details()
+
+        the_credential = Credentials.find_credentials("Instagram")
+
+        self.assertEqual(the_credential.account,test_credential.account)
+    
+    def test_credential_exist(self):
+        """Test to return a boolean based on whether we and or can't find the credential"""
+        self.new_credential.save_details()
+        the_credential = Credentials("Instagram", "ochiengbora", "TiktakT5u")
+        the_credential.save_details()
+        credential_is_found = Credentials.if_credential_exist("Instagram")
+        self.assertTrue(credential_is_found)
+
