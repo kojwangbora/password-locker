@@ -151,7 +151,18 @@ def passlocker():
 
 
             password = generate_Password()
-            print(f" {password} hass been successflly generated")
+            print(f" {password} hass been successflly generated!")
+        elif short_code=='ex':
+            print("Thank you for using this password locker aplication.. see you next time 😀!")
+            break
+        else:
+            print(" Error!!! check your entries and try again!")
+    else:
+        print("please enter valif input!")
+
+if __name__ =='__main__':
+    passlocker()
+
 
 
 
