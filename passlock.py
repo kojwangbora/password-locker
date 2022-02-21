@@ -46,4 +46,38 @@ class Credentials():
         """
         method to verify th euser in in the user_list
         """
+        a_user =""
+        for user in User.user_list:
+            if(user.username == username and user.password == password):
+                a_user == user.username
+        return a_user
+    
+    def __init__(self, account, userName, password):
+        """
+        method defines user credentials that are to be stored
+        """
+        self.account = account
+        self.userName = userName
+        self.password = password
         
+    def save_details(self):
+        """
+        method to store new credential 
+        """
+        Credentials.credentials_list.append(self)
+    
+    def delete_credentials(self):
+        """
+
+        delete_credentials, a method that deletes account's credentials from the credentials_listt
+        """
+        Credentials.credentials_list.remove(self)
+    
+    @classmethod
+    def find_credentials(cls, account):
+        """
+         A method takingin account_name and returns credentials matching the account_name
+         """
+        for credential in cls.credentials_list:
+            if credential.account == account:
+                return credential 
