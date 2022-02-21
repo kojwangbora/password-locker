@@ -27,6 +27,19 @@ class TestClass(unittest.TestCase):
 
 class TestCredentials(unittest, unittest.TestCase):
     """method runs before individual credential tests runs"""
+
+    def setUp(self):
+        """method runs before the credential test method"""
+
+        self.new_credential= Credentials('Gmail','Kjwang_Bora', 'qwe12rTy')
+
+    def test_init(self):
+        """Testing case to check new Credentials have been initialized properly"""
+
+        self.assertEqual(self.new_credential.account, 'Gmail')
+        self.assertEqual(self.new_credential.userName, 'Kojwang_Bora')
+        self.assertEqual(self.new_credential.password, 'qwe12rTy')
+    
     
          
     
